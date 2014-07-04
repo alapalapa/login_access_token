@@ -1,0 +1,11 @@
+#form {
+	margin-top:15%;
+}
+
+#submit {
+	margin:0 80%;
+}
+
+#form input[type=text],input[type="password"] {
+	margin-bottom:2%;
+}

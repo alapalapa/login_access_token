@@ -4,8 +4,9 @@
 
 #submit {
 	margin:0 80%;
+	margin-top:4%;
 }
 
 #form input[type=text],input[type="password"] {
-	margin-bottom:2%;
+	margin-bottom:4%;
 }

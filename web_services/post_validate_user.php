@@ -32,7 +32,7 @@ class Validate_user
 	{
 		//echo $this->data->user;
 
-		echo $this->test['login'];
+		echo json_encode($this->test);
 	}
 }
 

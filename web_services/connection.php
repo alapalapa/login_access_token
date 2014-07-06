@@ -16,7 +16,7 @@ class Connection
 	public static function test()
 	{
 		$con = Connection::connect();
-		$sql = "select login from user";
+		$sql = "select * from user";
 		$result = mysqli_query($con, $sql) or die ('query did not success');
 		$result = mysqli_fetch_assoc($result);
 		

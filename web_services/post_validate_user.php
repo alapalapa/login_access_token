@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 
-require_once 'conection.php';
+require_once 'connection.php';
 
 header("Content-type: application/json");
 header("Access-Control-Allow-Origin: *");
@@ -31,7 +31,8 @@ class Validate_user
 	public function send_data()
 	{
 		//echo $this->data->user;
-		echo $this->test;
+
+		echo $this->test['login'];
 	}
 }
 

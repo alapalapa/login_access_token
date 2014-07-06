@@ -14,7 +14,7 @@ $token = $_SESSION['token'] = md5(uniqid());
 	<div class="col-lg-4"></div>
 
 	<div class="col-lg-4" id="form">
-		<form>
+		<form method="POST" action="home.php">
 			<div>
 				<input type="text" name="user" placeholder="User Here!" class="form-control" required>
 			</div>

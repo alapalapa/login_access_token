@@ -40,9 +40,9 @@ if(!isset($_SESSION['user']))
 				<table class="table table-bordered table-striped table-hover">
 				<tr>
 					<th>id</th>
-					<th>login</th>
-					<th>user</th>
-					<th>pass</th>
+					<th>Login name</th>
+					<th>Password</th>
+					<th>Birthday</th>
 				</tr>
 				<? $info = json_decode($response); ?>
 				<? foreach ($info as $user): ?>

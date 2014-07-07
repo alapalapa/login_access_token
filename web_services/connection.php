@@ -5,7 +5,7 @@ require_once 'constants.php';
 class Connection
 {
 
-	private static function connect()
+	public static function connect()
 	{
 		$link = mysqli_connect(HOST, USER, PASS) or die ('there is no connection');
 		mysqli_select_db($link, DB) or die ('there is no selected database');

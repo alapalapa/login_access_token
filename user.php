@@ -17,13 +17,7 @@ if(!isset($_SESSION['user']))
 	<div class="col-lg-4"></div>
 
 	<div class="col-lg-4" id="form">
-		<form method="POST" action="users">
-			<div>
-				<input type="text" name="name" placeholder="Name" class="form-control" required>
-			</div>
-			<div>
-				<input type="text" name="lastname" placeholder="Last Name" class="form-control" required>
-			</div>
+		<form method="POST" action="controllers/post_insert_user">
 			<div>
 				<input type="text" name="user" placeholder="Login Name" class="form-control" required>
 			</div>

@@ -12,29 +12,26 @@ header("charset=utf-8");
 //header("Authorization: xxx");
 //header("Content-type: application/json");
 
-class Validate_user
+class Get_users
 {
-	private $data;
-	private $test;
-
-	public function __construct()
+	public function get_all_users()
 	{
-		$this->data = json_decode(file_get_contents("php://input"));
+		$con = Connection::connect();
+		$query = "SELECT * FROM user";
+		$result = mysqli_query($con, $query) or die ('query did not success');
+
+		while($data = mysqli_fetch_assoc($result)){
+			$rows = $data;
+		}
+		$this->send_data($rows);
 	}
 
-	public function validate()
+	public function send_data($data)
 	{
-		$this->test = Connection::test();
-		$this->send_data();
-	}
 
-	public function send_data()
-	{
-		//echo $this->data->user;
-
-		echo json_encode($this->test);
+		echo json_encode($data);
 	}
 }
 
-$obj = new validate_user;
-$obj->validate();
+$obj = new Get_users;
+$obj->get_all_users();

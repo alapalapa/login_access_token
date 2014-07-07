@@ -2,16 +2,12 @@
 session_start();
 error_reporting(E_ALL);
 
-if(!isset($_SESSION['user']))
-{
-	header('Location: ../login');
-}
 
-$data = array('user' => $_POST['user'], 'pass' => $_POST['password'], 'birthday' => $_POST['birthday']);
+$data = array('user' => $_POST['user'], 'pass' => $_POST['password']);
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_HTTPHEADER, Array("Content-Type: application/json"));
-curl_setopt($ch, CURLOPT_URL, "http://localhost/jaguarlabs/login_access_token/web_services/post_insert_user.php");
+curl_setopt($ch, CURLOPT_URL, "http://localhost/jaguarlabs/login_access_token/web_services/post_login_user.php");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
 
@@ -29,4 +25,4 @@ else
 
 echo json_decode($response);
 
-header('Location: ../index');
+//header('Location: ../index');

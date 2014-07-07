@@ -13,17 +13,17 @@ if(!isset($_SESSION['user']))
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 </head>
 <body>
-	
+
 		<?php
-		//$data = array('user' => $_POST['user'], 'pass' => $_POST['password'], 'token' => $_POST['token']);
 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_HTTPHEADER, Array("Content-Type: application/json"));
-		curl_setopt($ch, CURLOPT_URL, "http://localhost/jaguarlabs/login_access_token/web_services/post_validate_user.php");
+		curl_setopt($ch, CURLOPT_URL, "http://localhost/jaguarlabs/login_access_token/web_services/get_users.php");
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-		//curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
 		$response = curl_exec($ch);
 		$responseInfo = curl_getinfo($ch);
+
 		?>
 		<section class="container">
 			<section class="col-lg-12">
@@ -43,12 +43,14 @@ if(!isset($_SESSION['user']))
 					<th>Login name</th>
 					<th>Password</th>
 					<th>Birthday</th>
+					<th>Json string</th>
 				</tr>
 				<? $info = json_decode($response); ?>
+
 				<? foreach ($info as $user): ?>
-					
+
 						<td><?= $user ?></td>	<!-- error for being checked -->
-					
+
 				<? endforeach; ?>
 				</table>
 			</section>

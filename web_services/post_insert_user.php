@@ -17,12 +17,13 @@ class Insert_user
 
 	public function __construct()
 	{
-		$data = json_decode(file_get_contents("php://input"));
+		$json = file_get_contents("php://input");
+		$data = json_decode($json);
 		$login 	= $data->user;
 		$pass 	= $this->encrypt($data->pass);
 		$birthday = $data->birthday;
 
-		$this->insert($login, $pass, $birthday);
+		$this->insert($login, $pass, $birthday, $json);
 	}
 
 	private function encrypt($field)
@@ -43,10 +44,10 @@ class Insert_user
 		return base64_encode($encrypted);
 	}
 
-	private function insert($login, $pass, $birthday)
+	private function insert($login, $pass, $birthday, $json)
 	{
 		$con = Connection::connect();
-		$query = "INSERT INTO user (id,login,pass,birthday) VALUES (NULL,'$login','$pass','$birthday')";
+		$query = "INSERT INTO user (id,login,pass,birthday,json) VALUES (NULL,'$login','$pass','$birthday','$json')";
 		$result = mysqli_query($con, $query) or die("it didnt do the query");
 		//$result = mysqli_fetch_assoc($result);
 

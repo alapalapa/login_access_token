@@ -27,6 +27,6 @@ else
 	echo "There is an error at insert users";
 }
 
-echo json_decode($response);
+echo $response;
 
 header('Location: ../index');

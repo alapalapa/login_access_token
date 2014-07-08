@@ -17,11 +17,12 @@ class Insert_user
 
 	public function __construct()
 	{
-		$json = file_get_contents("php://input");
-		$data = json_decode($json);
+		
+		$data = json_decode(file_get_contents("php://input"));
 		$login 	= $data->user;
 		$pass 	= $this->encrypt($data->pass);
 		$birthday = $data->birthday;
+		$json = json_encode(array("user" => $login, "pass" => $pass, "birthday" => $birthday));
 
 		$this->insert($login, $pass, $birthday, $json);
 	}
